@@ -1,0 +1,41 @@
+{
+  "name": "agentic-chat-interface",
+  "version": "1.0.0",
+  "description": "Production-grade agentic chat interface with IDE-style UI and end-to-end markdown support",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "ts-node-dev --respawn --transpile-only src/server/index.ts",
+    "dev:client": "cd client && npm run dev",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "tsc",
+    "build:client": "cd client && npm run build",
+    "start": "node dist/server/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "openai": "^4.29.0",
+    "@anthropic-ai/sdk": "^0.20.0",
+    "zod": "^3.22.4",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.10.0",
+    "@types/jest": "^29.5.8",
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "concurrently": "^8.2.2",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0"
+  }
+}
